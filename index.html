@@ -30,103 +30,126 @@ object-fit:cover;
 z-index:-2;
 }
 
-/* OVERLAY */
+/* OVERLAY SOFT */
 .overlay{
 min-height:100vh;
-background:rgba(0,0,30,0.55);
+background:linear-gradient(
+rgba(10,20,50,0.65),
+rgba(10,20,50,0.75)
+);
 display:flex;
 flex-direction:column;
 align-items:center;
-padding:40px 20px;
+padding:50px 20px;
 }
 
 /* HEADER */
 header{
 text-align:center;
-margin-bottom:30px;
+margin-bottom:35px;
 }
 
 header h1{
-font-size:36px;
+font-size:42px;
+letter-spacing:1px;
+font-weight:600;
 }
 
 /* PROFILE */
 .profile-card{
-background:rgba(255,255,255,0.12);
-backdrop-filter:blur(10px);
-border-radius:20px;
+background:rgba(255,255,255,0.15);
+backdrop-filter:blur(12px);
+border-radius:24px;
 padding:30px;
 display:flex;
 gap:25px;
-max-width:650px;
+max-width:700px;
 width:100%;
-margin-bottom:40px;
+margin-bottom:45px;
 }
 
-/* AVATAR TO HƠN */
+/* AVATAR */
 .profile-card img{
-width:150px;
-height:150px;
+width:160px;
+height:160px;
 border-radius:50%;
 object-fit:cover;
-border:3px solid rgba(255,255,255,0.6);
+border:3px solid rgba(255,255,255,0.7);
+}
+
+/* PROFILE TEXT */
+.profile-info{
+display:flex;
+flex-direction:column;
+gap:6px;
 }
 
 .profile-info h2{
-font-size:28px;
-margin-bottom:10px;
+font-size:34px;
+font-weight:600;
+}
+
+.profile-info p{
+font-size:18px;
+opacity:0.95;
 }
 
 /* KHỐI 2/3 TRANG */
 .main-box{
 width:66%;
-max-width:900px;
+max-width:950px;
 display:grid;
 grid-template-columns:1fr 1fr;
-gap:20px;
+gap:22px;
 }
 
-/* CARD CHUNG */
+/* CARD */
 .card{
-background:rgba(255,255,255,0.12);
-backdrop-filter:blur(10px);
-border-radius:20px;
-padding:20px;
+background:rgba(255,255,255,0.15);
+backdrop-filter:blur(12px);
+border-radius:24px;
+padding:22px;
 }
 
-/* ẢNH SỞ THÍCH */
+.card h3{
+font-size:22px;
+margin-bottom:12px;
+}
+
+/* ẢNH HOBBY */
 .hobby-img{
 display:grid;
 grid-template-columns:1fr 1fr;
-gap:10px;
-margin-top:10px;
+gap:12px;
 }
 
 .hobby-img img{
 width:100%;
-height:140px;
+height:150px;
 object-fit:cover;
-border-radius:12px;
+border-radius:14px;
 }
 
 /* SPOTIFY */
 iframe{
 width:100%;
-border-radius:12px;
+height:160px;
+border-radius:14px;
+border:none;
 }
 
-/* FOOTER */
 footer{
-margin-top:40px;
+margin-top:45px;
 opacity:0.8;
+font-size:15px;
 }
 </style>
 </head>
 
 <body>
 
-<!-- VIDEO + AUDIO CHUNG -->
-<video class="bg-video" id="bgVideo" autoplay loop playsinline>
+<!-- VIDEO -->
+<video class="bg-video" id="bgVideo" autoplay loop playsinline muted>
 <source src="bg.mp4" type="video/mp4">
 </video>
 
@@ -138,19 +161,23 @@ opacity:0.8;
 
 <!-- PROFILE -->
 <div class="profile-card">
-<img src="ctu.jpg" alt="Ảnh Đại Diện">
+<!-- ⚠ Nếu ảnh cùng thư mục index.html -->
+<img src="avatar.jpg" alt="Avatar">
+
+<!-- ⚠ Nếu ảnh nằm folder images -->
+<!-- <img src="images/avatar.jpg"> -->
+
 <div class="profile-info">
 <h2>Nguyễn Cẩm Tú</h2>
 <p>Sinh: 27/12/2008</p>
-<p>Sở thích: Du lịch, Nghe nhạc, Thủ công</p>
+<p>Sở thích: Du lịch • Nghe nhạc • Thủ công</p>
 <p>Màu yêu thích: Xanh than</p>
 </div>
 </div>
 
-<!-- KHỐI 4 MỤC -->
+<!-- 4 CARD -->
 <div class="main-box">
 
-<!-- DU LỊCH -->
 <div class="card">
 <h3>Du lịch</h3>
 <div class="hobby-img">
@@ -159,7 +186,6 @@ opacity:0.8;
 </div>
 </div>
 
-<!-- NGHE NHẠC -->
 <div class="card">
 <h3>Nghe nhạc</h3>
 <div class="hobby-img">
@@ -168,7 +194,6 @@ opacity:0.8;
 </div>
 </div>
 
-<!-- THỦ CÔNG -->
 <div class="card">
 <h3>Thủ công</h3>
 <div class="hobby-img">
@@ -177,7 +202,6 @@ opacity:0.8;
 </div>
 </div>
 
-<!-- SPOTIFY -->
 <div class="card">
 <h3>Nhạc yêu thích</h3>
 <iframe src="https://open.spotify.com/embed/track/2gGMJDtppeGj8s11mXaHKU"></iframe>
@@ -194,11 +218,11 @@ opacity:0.8;
 <script>
 const video = document.getElementById("bgVideo");
 
-/* Bật âm thanh video khi click lần đầu */
-document.addEventListener("click", () => {
-video.muted = false;
+/* Click lần đầu bật cả video + audio */
+document.addEventListener("click",()=>{
+video.muted=false;
 video.play();
-},{ once:true });
+},{once:true});
 </script>
 
 </body>
