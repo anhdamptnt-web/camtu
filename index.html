@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Trang cá nhân</title>
 
+
 <style>
 *{
 margin:0;
@@ -13,11 +14,13 @@ box-sizing:border-box;
 font-family: Arial, Helvetica, sans-serif;
 }
 
+
 body,html{
 height:100%;
 color:white;
 overflow-x:hidden;
 }
+
 
 /* VIDEO NỀN */
 .bg-video{
@@ -28,20 +31,21 @@ width:100%;
 height:100%;
 object-fit:cover;
 z-index:-2;
+filter:brightness(0.85);
 }
 
-/* OVERLAY SOFT */
+
+/* OVERLAY SOFT + BLUR TINH TẾ */
 .overlay{
 min-height:100vh;
-background:linear-gradient(
-rgba(10,20,50,0.65),
-rgba(10,20,50,0.75)
-);
+background:rgba(10,20,50,0.55);
+backdrop-filter:blur(12px);
 display:flex;
 flex-direction:column;
 align-items:center;
 padding:50px 20px;
 }
+
 
 /* HEADER */
 header{
@@ -49,173 +53,48 @@ text-align:center;
 margin-bottom:35px;
 }
 
+
 header h1{
 font-size:42px;
 letter-spacing:1px;
 font-weight:600;
 }
 
+
 /* PROFILE */
 .profile-card{
-background:rgba(255,255,255,0.15);
-backdrop-filter:blur(12px);
-border-radius:24px;
+background:rgba(255,255,255,0.18);
+backdrop-filter:blur(16px);
+border-radius:26px;
 padding:30px;
 display:flex;
 gap:25px;
-max-width:700px;
+max-width:720px;
 width:100%;
 margin-bottom:45px;
+box-shadow:0 10px 35px rgba(0,0,0,0.25);
 }
+
 
 /* AVATAR */
 .profile-card img{
-width:160px;
-height:160px;
+width:170px;
+height:170px;
 border-radius:50%;
 object-fit:cover;
-border:3px solid rgba(255,255,255,0.7);
+border:4px solid rgba(255,255,255,0.7);
 }
+
 
 /* PROFILE TEXT */
 .profile-info{
 display:flex;
 flex-direction:column;
-gap:6px;
+gap:8px;
 }
+
 
 .profile-info h2{
 font-size:34px;
 font-weight:600;
-}
-
-.profile-info p{
-font-size:18px;
-opacity:0.95;
-}
-
-/* KHỐI 2/3 TRANG */
-.main-box{
-width:66%;
-max-width:950px;
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:22px;
-}
-
-/* CARD */
-.card{
-background:rgba(255,255,255,0.15);
-backdrop-filter:blur(12px);
-border-radius:24px;
-padding:22px;
-}
-
-.card h3{
-font-size:22px;
-margin-bottom:12px;
-}
-
-/* ẢNH HOBBY */
-.hobby-img{
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:12px;
-}
-
-.hobby-img img{
-width:100%;
-height:150px;
-object-fit:cover;
-border-radius:14px;
-}
-
-/* SPOTIFY */
-iframe{
-width:100%;
-height:160px;
-border-radius:14px;
-border:none;
-}
-
-footer{
-margin-top:45px;
-opacity:0.8;
-font-size:15px;
-}
-</style>
-</head>
-
-<body>
-
-<!-- VIDEO -->
-<video class="bg-video" id="bgVideo" autoplay loop playsinline muted>
-<source src="bg.mp4" type="video/mp4">
-</video>
-
-<div class="overlay">
-
-<header>
-<h1>Trang cá nhân</h1>
-</header>
-
-<!-- PROFILE -->
-<div class="profile-card">
-<img src="images/ctu.jpg">
-<div class="profile-info">
-<h2>Nguyễn Cẩm Tú</h2>
-<p>Sinh: 27/12/2008</p>
-<p>Sở thích: Du lịch • Nghe nhạc • Thủ công</p>
-<p>Màu yêu thích: Xanh than</p>
-</div>
-</div>
-
-<!-- 4 CARD -->
-<div class="main-box">
-
-<div class="card">
-<h3>Du lịch</h3>
-<div class="hobby-img">
-<img src="images/travel1.jpg">
-</div>
-</div>
-
-<div class="card">
-<h3>Nghe nhạc</h3>
-<div class="hobby-img">
-<img src="images/music.jpg">
-</div>
-</div>
-
-<div class="card">
-<h3>Thủ công</h3>
-<div class="hobby-img">
-<img src="images/craft.jpg">
-</div>
-</div>
-
-<div class="card">
-<h3>Nhạc yêu thích</h3>
-<iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/track/6iycYUk3oB0NPMdaDUrN1w?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-</div>
-
-</div>
-
-<footer>
-© 2026 Personal Website
-</footer>
-
-</div>
-
-<script>
-const video = document.getElementById("bgVideo");
-
-/* Click lần đầu bật cả video + audio */
-document.addEventListener("click",()=>{
-video.muted=false;
-video.play();
-},{once:true});
-</script>
-
-</body>
 </html>
